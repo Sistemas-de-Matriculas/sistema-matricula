@@ -123,58 +123,6 @@ Após a matrícula, o sistema de cobranças é notificado para que o aluno seja 
 
 ---
 
-## 8. Diagrama de Casos de Uso
-
-```mermaid
-flowchart LR
-    Aluno(["Aluno"])
-    Professor(["Professor"])
-    Secretaria(["Secretaria"])
-    Cobranca(["Sistema de Cobranças"])
-
-    subgraph SM["Sistema de Matrículas"]
-        direction TB
-        UC01((Efetuar Login))
-        UC02((Cadastrar Curso))
-        UC03((Cadastrar Disciplina))
-        UC04((Cadastrar Professor))
-        UC05((Cadastrar Aluno))
-        UC06((Gerar Currículo do Semestre))
-        UC07((Consultar Disciplinas Ofertadas))
-        UC08((Matricular-se em Disciplina))
-        UC09((Cancelar Matrícula))
-        UC10((Consultar Alunos Matriculados))
-        UC11((Notificar Sistema de Cobranças))
-        UC12((Processar Encerramento do Período de Matrículas))
-    end
-
-    Aluno --> UC01
-    Aluno --> UC07
-    Aluno --> UC08
-    Aluno --> UC09
-
-    Professor --> UC01
-    Professor --> UC10
-
-    Secretaria --> UC01
-    Secretaria --> UC02
-    Secretaria --> UC03
-    Secretaria --> UC04
-    Secretaria --> UC05
-    Secretaria --> UC06
-    Secretaria --> UC12
-
-    UC08 -. "«include»" .-> UC01
-    UC09 -. "«include»" .-> UC01
-    UC10 -. "«include»" .-> UC01
-    UC08 -. "«include»" .-> UC11
-    UC11 --> Cobranca
-```
-
-*(Este diagrama, renderizado em Mermaid, serve de referência textual; o diagrama UML formal deve ser produzido na ferramenta de modelagem indicada pela disciplina e anexado ao repositório.)*
-
----
-
 ## 9. Especificação dos Casos de Uso
 
 ### UC01 — Efetuar Login
