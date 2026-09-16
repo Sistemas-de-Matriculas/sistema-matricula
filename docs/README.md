@@ -16,10 +16,11 @@
 6. [Requisitos Funcionais](#6-requisitos-funcionais)
 7. [Requisitos Não Funcionais](#7-requisitos-não-funcionais)
 8. [Diagrama de Casos de Uso](#8-diagrama-de-casos-de-uso)
-9. [Especificação dos Casos de Uso](#9-especificação-dos-casos-de-uso)
-10. [Histórias de Usuário](#10-histórias-de-usuário)
-11. [Matriz de Rastreabilidade](#11-matriz-de-rastreabilidade)
-12. [Roadmap das Sprints](#12-roadmap-das-sprints)
+9. [Diagrama de Classe](#9-diagrama-de-classe)
+10. [Especificação dos Casos de Uso](#10-especificação-dos-casos-de-uso)
+11. [Histórias de Usuário](#11-histórias-de-usuário)
+12. [Matriz de Rastreabilidade](#12-matriz-de-rastreabilidade)
+13. [Roadmap das Sprints](#13-roadmap-das-sprints)
 
 ---
 
@@ -123,7 +124,12 @@ Após a matrícula, o sistema de cobranças é notificado para que o aluno seja 
 
 ---
 
-## 9. Especificação dos Casos de Uso
+## 8. Diagrama de Casos de Uso
+---
+## 9. Diagrama de Classe
+---
+
+## 10. Especificação dos Casos de Uso
 
 ### UC01 — Efetuar Login
 
@@ -211,7 +217,7 @@ Após a matrícula, o sistema de cobranças é notificado para que o aluno seja 
 
 ---
 
-## 10. Histórias de Usuário
+## 11. Histórias de Usuário
 
 ### Aluno
 
@@ -241,7 +247,7 @@ Após a matrícula, o sistema de cobranças é notificado para que o aluno seja 
 
 ---
 
-## 11. Matriz de Rastreabilidade
+## 12. Matriz de Rastreabilidade
 
 | Requisito Funcional | Caso de Uso | História de Usuário | Regra de Negócio |
 |---|---|---|---|
@@ -261,7 +267,7 @@ Após a matrícula, o sistema de cobranças é notificado para que o aluno seja 
 
 ---
 
-## 12. Roadmap das Sprints
+## 13. Roadmap das Sprints
 
 | Sprint | Entrega | Pontos |
 |---|---|---|
