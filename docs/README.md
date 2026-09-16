@@ -127,6 +127,7 @@ Após a matrícula, o sistema de cobranças é notificado para que o aluno seja 
 ## 8. Diagrama de Casos de Uso
 ---
 ## 9. Diagrama de Classe
+<img width="878" height="941" alt="WhatsApp Image 2026-09-16 at 2 10 23 PM" src="https://github.com/user-attachments/assets/eebf86e3-02a3-494b-b24c-fdf014b476fa" />
 ---
 
 ## 10. Especificação dos Casos de Uso
