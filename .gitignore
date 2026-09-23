@@ -1,0 +1,12 @@
+app/target/
+app/.mvn/
+app/.idea/
+app/*.iml
+.idea/
+.vscode/
+*.log
+*.tmp
+*.swp
+.DS_Store
+
+docker/postgres-data/
