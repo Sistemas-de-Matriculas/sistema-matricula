@@ -36,6 +36,13 @@ public class SpringEnrollmentRepository implements EnrollmentRepository {
 
   @Override
   public Enrollment save(Enrollment enrollment) {
+    if (enrollment.id() != null) {
+      EnrollmentEntity existing = enrollmentJpaRepository.findById(enrollment.id()).orElseThrow();
+      existing.setStatus(enrollment.status());
+      existing.setCancelledAt(enrollment.cancelledAt());
+      return toDomain(enrollmentJpaRepository.save(existing));
+    }
+
     OfferingEntity offering = offeringJpaRepository.findById(enrollment.offeringId()).orElseThrow();
     StudentEntity student = studentJpaRepository.findById(enrollment.studentId()).orElseThrow();
 
@@ -61,6 +68,15 @@ public class SpringEnrollmentRepository implements EnrollmentRepository {
   public List<Enrollment> findByStudentIdAndSemesterId(Long studentId, Long semesterId) {
     return enrollmentJpaRepository
         .findByStudent_IdAndOffering_Semester_Id(studentId, semesterId)
+        .stream()
+        .map(this::toDomain)
+        .toList();
+  }
+
+  @Override
+  public List<Enrollment> findActiveByOfferingId(Long offeringId) {
+    return enrollmentJpaRepository
+        .findByOffering_IdAndStatus(offeringId, EnrollmentStatus.ENROLLED)
         .stream()
         .map(this::toDomain)
         .toList();

@@ -10,4 +10,6 @@ public interface EnrollmentJpaRepository extends JpaRepository<EnrollmentEntity,
   boolean existsByOffering_IdAndStudent_IdAndStatus(Long offeringId, Long studentId, EnrollmentStatus status);
 
   List<EnrollmentEntity> findByStudent_IdAndOffering_Semester_Id(Long studentId, Long semesterId);
+
+  List<EnrollmentEntity> findByOffering_IdAndStatus(Long offeringId, EnrollmentStatus status);
 }

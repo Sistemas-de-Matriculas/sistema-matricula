@@ -3,6 +3,7 @@ import { me } from "./api.js";
 import Login from "./pages/Login.jsx";
 import Admin from "./pages/Admin.jsx";
 import Student from "./pages/Student.jsx";
+import Professor from "./pages/Professor.jsx";
 
 export default function App() {
   const [user, setUser] = useState(null);
@@ -33,6 +34,10 @@ export default function App() {
 
   if (user.role === "ALUNO") {
     return <Student user={user} onLoggedOut={() => setUser(null)} />;
+  }
+
+  if (user.role === "PROFESSOR") {
+    return <Professor user={user} onLoggedOut={() => setUser(null)} />;
   }
 
   return (

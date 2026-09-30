@@ -9,6 +9,8 @@ public interface DisciplineRepository {
 
   List<Discipline> findAll();
 
+  List<Discipline> findByProfessorId(Long professorId);
+
   Discipline save(Discipline discipline);
 
   void deleteById(Long id);

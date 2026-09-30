@@ -14,4 +14,6 @@ public interface EnrollmentRepository {
   Optional<Enrollment> findById(Long id);
 
   List<Enrollment> findByStudentIdAndSemesterId(Long studentId, Long semesterId);
+
+  List<Enrollment> findActiveByOfferingId(Long offeringId);
 }

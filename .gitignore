@@ -10,3 +10,7 @@ app/*.iml
 .DS_Store
 
 docker/postgres-data/
+
+# sessões geradas por curl
+*.cookies
+cookies.txt

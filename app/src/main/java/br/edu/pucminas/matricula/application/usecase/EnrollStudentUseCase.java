@@ -94,8 +94,11 @@ public class EnrollStudentUseCase {
     int newOptional = 0;
     List<EnrollmentResponse> responses = new ArrayList<>();
 
-    for (Long offeringId : request.offeringIds()) {
-      Offering offering = offeringRepository.findById(offeringId)
+    // Ordem fixa de bloqueio evita deadlock entre matrículas concorrentes (RNF04).
+    List<Long> offeringIds = request.offeringIds().stream().distinct().sorted().toList();
+
+    for (Long offeringId : offeringIds) {
+      Offering offering = offeringRepository.findByIdForUpdate(offeringId)
           .orElseThrow(() -> new ValidationException("Oferta não encontrada: " + offeringId));
 
       if (!offering.semesterId().equals(semester.id())) {
@@ -153,7 +156,12 @@ public class EnrollStudentUseCase {
           enrollment.createdAt()));
     }
 
-    billingNotificationService.notifyEnrollment(student, existingActive);
+    List<Enrollment> allActive = enrollmentRepository
+        .findByStudentIdAndSemesterId(student.id(), semester.id())
+        .stream()
+        .filter(e -> e.status() == EnrollmentStatus.ENROLLED)
+        .toList();
+    billingNotificationService.notifyEnrollment(student, allActive);
 
     return responses;
   }

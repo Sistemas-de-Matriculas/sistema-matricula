@@ -27,8 +27,18 @@ public class SpringOfferingRepository implements OfferingRepository {
   }
 
   @Override
+  public Optional<Offering> findByIdForUpdate(Long id) {
+    return offeringJpaRepository.findByIdForUpdate(id).map(this::toDomain);
+  }
+
+  @Override
   public List<Offering> findBySemesterId(Long semesterId) {
     return offeringJpaRepository.findBySemester_Id(semesterId).stream().map(this::toDomain).toList();
+  }
+
+  @Override
+  public List<Offering> findByDisciplineId(Long disciplineId) {
+    return offeringJpaRepository.findByDiscipline_Id(disciplineId).stream().map(this::toDomain).toList();
   }
 
   @Override

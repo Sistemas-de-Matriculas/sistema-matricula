@@ -76,4 +76,12 @@ public class EnrollmentEntity {
   public OffsetDateTime getCancelledAt() {
     return cancelledAt;
   }
+
+  public void setStatus(EnrollmentStatus status) {
+    this.status = status;
+  }
+
+  public void setCancelledAt(OffsetDateTime cancelledAt) {
+    this.cancelledAt = cancelledAt;
+  }
 }

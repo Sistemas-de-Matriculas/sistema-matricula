@@ -32,6 +32,11 @@ public class SpringDisciplineRepository implements DisciplineRepository {
   }
 
   @Override
+  public List<Discipline> findByProfessorId(Long professorId) {
+    return disciplineJpaRepository.findByProfessor_Id(professorId).stream().map(this::toDomain).toList();
+  }
+
+  @Override
   public Discipline save(Discipline discipline) {
     CourseEntity course = courseJpaRepository.findById(discipline.courseId()).orElseThrow();
     ProfessorEntity professor = professorJpaRepository.findById(discipline.professorId()).orElseThrow();
